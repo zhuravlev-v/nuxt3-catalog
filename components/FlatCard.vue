@@ -9,7 +9,7 @@
       placement="bottom"
     >
       <div class="card__promo">
-        <img src="img/promo.svg" alt="" class="card__promo-img">
+        <img src="/img/promo.svg" alt="" class="card__promo-img">
       </div>
     </el-tooltip>
     <div class="card__img">
@@ -17,10 +17,10 @@
     </div>
     <div class="card__buttons">
       <button class="btn-reset card__button card__favorites">
-        <img src="img/heart.svg" alt="">
+        <img src="/img/heart.svg" alt="">
       </button>
       <button class="btn-reset card__button card__compare">
-        <img src="img/scales.svg" alt="">
+        <img src="/img/scales.svg" alt="">
       </button>
     </div>
     <p class="card__object">{{ flat.objectName }}</p>
