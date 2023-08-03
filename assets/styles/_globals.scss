@@ -1,0 +1,48 @@
+$color-blue: #224E9C;
+$color-blue-dark: #004F9E;
+$color-blue-light: #E5F3FF;
+// #9AADC6
+$color-gold: #FDC83E;
+$color-black: #000000;
+$color-white: #FFFFFF;
+
+:root {
+  --el-color-primary: #FDC83E !important;
+}
+
+.btn-reset {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin extra-big {
+  @media (min-width: (1500px)) {
+    @content;
+  }
+}
+
+@mixin big {
+  @media (min-width: (1350px)) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (min-width: (1024px)) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media (min-width: (768px)) {
+    @content;
+  }
+}
+
+@mixin extra-small {
+  @media (min-width: (576px)) {
+    @content;
+  }
+}

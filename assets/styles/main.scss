@@ -1,0 +1,16 @@
+@import 'normalize.css';
+
+@font-face {
+  font-family: 'Averta';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('@/assets/fonts/Averta-Regular.woff2') format('woff2');
+}
+
+html {
+  font-size: 10px;
+  font-family: 'Averta';
+  // background-color: #F4EBD2;
+  background: #FAFAFA;
+}
