@@ -1,5 +1,6 @@
 <template>
   <VueFinalModal 
+    :modal-id="'ThanksModal'"
     class="thanks-modal confirm-modal" 
     content-class="confirm-modal-content" 
     overlay-transition="vfm-fade"
@@ -18,7 +19,7 @@
 </template>
 
 <script setup>
-import { VueFinalModal, useVfm } from 'vue-final-modal'
+import { VueFinalModal } from 'vue-final-modal'
 import IconCross from './icons/IconCross.vue';
 
 const emit = defineEmits(['closeThanksModal'])

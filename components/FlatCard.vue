@@ -1,13 +1,7 @@
 <template>
   <div :class="classObject" @click="openFlatModal">
-    <el-tooltip
-      v-if="flat.promo"
-      class="box-item"
-      :popper-class="'card__tooltip'"
-      effect="dark"
-      content="Акция: Подарок"
-      placement="bottom"
-    >
+    <el-tooltip v-if="flat.promo" class="box-item" :popper-class="'card__tooltip'" effect="dark" content="Акция: Подарок"
+      placement="bottom">
       <div class="card__promo">
         <img src="/img/promo.svg" alt="" class="card__promo-img">
       </div>
@@ -40,7 +34,6 @@
 </template>
 
 <script setup>
-// import { useModalStore } from '@/store/modals'
 import { useModal } from 'vue-final-modal'
 import FlatModal from '@/components/FlatModal.vue'
 
@@ -60,8 +53,12 @@ const { open: openFlatModal, close } = useModal({
   component: FlatModal,
   attrs: {
     flat: props.flat,
-    onCloseFlatModal() {
-      close()
+    async onCloseFlatModal(payload) {
+      await close()
+
+      if (payload.openThanks) {
+        await payload.open()
+      }
     },
   },
 })
@@ -77,11 +74,12 @@ const { open: openFlatModal, close } = useModal({
   background: $color-gold;
   border: none;
   border-radius: 8px;
-  
+
   @include big {
     font-size: 1.2em;
   }
 }
+
 .card {
   font-size: 10px;
   border: 1px solid #EAEAEA;

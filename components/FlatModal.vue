@@ -1,7 +1,6 @@
 <template>
   <VueFinalModal
-    :modal-id="'modalId'"
-    @closed="onClosed"
+    :modal-id="'FlatModal'"
     class="flat-modal confirm-modal" 
     content-class="confirm-modal-content" 
     overlay-transition="vfm-fade"
@@ -9,9 +8,9 @@
     z-index="3000"
   >
     <div class="flat-modal__inner">
-      <el-button @click="emit('closeFlatModal')" :icon="IconCross" circle />
+      <el-button @click="emit('closeFlatModal', { openThanks: false })" :icon="IconCross" circle />
       <FlatModalInfo :flat="flat" />
-      <FlatModalForm :flat="flat" @closeModal="emit('closeFlatModal')" @openThanks="openThanksModal" />
+      <FlatModalForm :flat="flat" @closeModal="emit('closeFlatModal', { openThanks: true, open: openThanksModal })" />
     </div>
   </VueFinalModal>
 </template>
@@ -25,8 +24,6 @@ const props = defineProps({
   flat: { type: Object }
 })
 
-// const showModal = ref(true)
-
 const emit = defineEmits(['closeFlatModal'])
 
 const { open: openThanksModal, close: closeThanksModal } = useModal({
@@ -37,11 +34,6 @@ const { open: openThanksModal, close: closeThanksModal } = useModal({
     },
   },
 })
-
-const onClosed = () => {
-  queueMicrotask(() => openThanksModal())
-}
-
 </script>
 
 <style>
